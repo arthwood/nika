@@ -1,0 +1,20 @@
+- id = @blog_item.id
+
+%h2 Edit blog entry
+
+= error_messages_for :blog_item
+
+- form_remote_for(:blog_item, :url => {:action => :update_item, :id => id}) do |i|
+  %label Title:
+  %p= i.text_field :title, :style => 'width: 600px;' 
+  %label Body:
+  %p= find_and_preserve i.text_area(:body, :style => 'width: 600px; height: 300px;')
+  %p
+    = i.check_box :public
+    Public
+  %p
+    = i.check_box :active
+    Active
+  %p 
+    = submit_tag "Edit"
+    %input{:type => 'button', :value => 'Cancel', :onclick => "onCancelEditBlogItem(#{id})"}

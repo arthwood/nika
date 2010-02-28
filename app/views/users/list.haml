@@ -1,0 +1,14 @@
+%h1 Users
+
+%table.users
+  %tr
+    %th No.
+    %th Login
+    %th Name
+    %th Role
+    %th e-mail
+    %th Active
+    %th{:colspan => 2} Action
+  = render :partial => 'user_row', :collection => @users
+%br/
+= link_to 'Add new user', :action => :new

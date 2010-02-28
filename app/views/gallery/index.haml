@@ -1,0 +1,20 @@
+.gallery
+  .right
+    - if current_user.superadmin?
+      %p.link
+        = link_to_remote 'New Photo Set', {:url => {:action => :on_new_photoset}, :after => "$('new_photo_set_link').hide();", :complete => "$('new_photoset_form').show()"}, :id => 'new_photo_set_link'
+      %p.link
+        = link_to_remote 'Upload Photo', {:url => {:action => :on_new_photo}, :after => "$('new_photo_link').hide();", :complete => "$('new_photo_form').show()"}, :id => 'new_photo_link'
+
+    #photo_sets
+      = render :partial => 'photo_set_item', :collection => @photo_sets
+      .photo_set_item
+        = image_tag 'photo_set.gif'
+        %span
+          = link_to_remote 'Uncategorized', :url => {:action => :on_uncategorized_photo_set_item}
+          = " (#{@uncategorized_photos_num})"
+  .left
+    #new_photoset_form{:style => 'display: none'}
+    #new_photo_form{:style => 'display: none'}
+    #photos
+  .clear

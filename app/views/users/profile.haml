@@ -1,0 +1,26 @@
+%script{:type => 'text/javascript'}
+  :plain
+    var showed = false;
+    
+    function onShowOtherPlaces() {
+      showed = !showed;
+      $('show-other-places-link').innerHTML = showed ? '(Hide Other Places)' : '(Show Other Places)'
+      showed ? $('other-places').show() : $('other-places').hide();
+    }
+
+%h1 Profile
+
+%p 
+  Timezone:
+  = @timezone || 'Not Set'
+  %br/
+  = link_to_function '(Show Other Places)', "onShowOtherPlaces()", {:id => 'show-other-places-link'} if @timezone
+
+- if @timezone
+  %p#other-places{:style => 'display: none;'}
+    - @timezones.each do |i|
+      = i.name
+      %br/
+  
+%br/
+= link_to 'Edit profile', :action => :edit_profile

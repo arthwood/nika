@@ -1,0 +1,5 @@
+.photo_set_item
+  = image_tag 'photo_set.gif'
+  %span
+    = link_to_remote photo_set_item.name, :url => {:action => :on_photo_set_item, :id => photo_set_item}
+    = " (#{photo_set_item.photos.size})"

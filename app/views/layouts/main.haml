@@ -1,0 +1,19 @@
+!!! Strict
+%html{'xmlns' => 'http://www.w3.org/1999/xhtml', 'xml:lang' => 'en', 'lang' => 'en'}
+  %head
+    %meta{'http-equiv' => 'content-type', 'content' => 'text/html;charset=UTF-8'}/
+    %title= "Nika's blog"
+    = stylesheet_link_tag 'main'
+    = javascript_include_tag :defaults
+  %body
+    %div.main
+      #header
+        = render :partial => '/layouts/header'
+      #flash
+        = render :partial => '/layouts/flash', :locals => {:flash => flash}
+      #menu
+        = render :partial => '/layouts/menu'
+      #content
+        = yield
+      #footer
+        = render :partial => '/layouts/footer'

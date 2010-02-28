@@ -1,0 +1,32 @@
+- id = blog_item.id
+- style_class = 'blog-item' + (current_user.admin? && !blog_item.active ? ' blog-item-inactive' : '')
+- item_id = "blog_item_#{id}"
+- content_id = "blog_item_content_#{id}"
+- edit_id = "blog_item_edit_#{id}"
+- edit_blog_item_link_id = "edit_blog_item_link_#{id}"
+- comments_id = "comments_#{id}"
+- new_comment_id = "new_comment_#{id}"
+
+.blog-item{:id => item_id, :class => style_class}
+  .blog-item-content{:id => content_id}
+    = render :partial => 'blog_item_data', :object => blog_item
+
+  .blog-item-edit{:id => edit_id}
+
+  .manage-blog-item
+    = link_to_remote('Edit', ajax_indicator({:url => {:action => :edit_item, :id => id}, :before => "$('#{content_id}').hide(); $('#{edit_blog_item_link_id}').hide();"}, edit_id), {:id => edit_blog_item_link_id}) if can_edit_blog_items?
+    = link_to_remote('Delete', {:url => {:action => :delete_item, :id => id}, :confirm => 'Really delete this blog item?'}) if can_delete_blog_items?
+
+  - if can_add_blog_comments?
+    .new_blog_comment
+      = link_to_remote('Add comment', ajax_indicator({:url => {:action => :new_comment, :id => id}}, new_comment_id), {:id => "add_comment_link_#{id}"})
+      %div#{:id => new_comment_id}
+
+  %p{:id => "comments_num_#{id}"}
+    = render :partial => 'comments_num', :object => blog_item.comments.size
+    
+  - no_comments = blog_item.comments.empty?
+  = link_to_remote('Show', ajax_indicator({:url => {:action => :show_comments, :id => id}, :before => "$('#{comments_id}').show()"}, comments_id), {:id => "show_comments_link_#{id}", :style => "display: #{no_comments ? 'none' : ''}"})
+  = link_to_function('Hide', "onHide(#{id})", {:id => "hide_comments_link_#{id}", :style => 'display: none;'})
+
+  .blog-item-comments{:id => comments_id, :style => 'display: none;'}

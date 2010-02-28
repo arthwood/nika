@@ -1,0 +1,7 @@
+- notice = flash[:notice]
+- error = flash[:error]
+.flash{:onclick => "Effect.SlideUp(this);"}
+  .notice{:id => 'flash-notice', :style => "display: #{notice ? '' : 'none'}"}
+    = flash[:notice]
+  .error{:id => 'flash-error', :style => "display: #{error ? '' : 'none'}"}
+    = flash[:error]

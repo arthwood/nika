@@ -1,0 +1,12 @@
+%h2 New comment
+
+= error_messages_for :blog_comment
+
+- form_remote_for(:blog_comment, :url => {:action => :create_comment}) do |i|
+  %p= hidden_field :blog_comment, :blog_item_id
+  %p= hidden_field :blog_comment, :user_id
+  %label Body:
+  %p= find_and_preserve i.text_area(:body, :style => 'width: 400px; height: 100px;')
+  %p 
+    = submit_tag "Add"
+    %input{:type => 'button', :value => 'Cancel', :onclick => "onCancelAddComment(#{@blog_comment.blog_item_id})"}

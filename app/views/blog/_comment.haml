@@ -1,0 +1,12 @@
+- id = comment.id
+- style_class = 'blog-comment' + (current_user.admin? && !comment.active ? ' blog-comment-inactive' : '') 
+
+.blog-comment{:class => style_class}[comment]
+  .blog-item-content{:id => "comment_content_#{id}"}
+    = render :partial => 'comment_data', :object => comment
+  
+  .blog-comment-edit{:id => "blog_comment_edit_#{id}"}
+
+  .manage-blog-comment
+    = link_to_remote('Edit', {:url => {:action => :edit_comment, :id => id}}, {:id => "edit_comment_link_#{id}"}) if can_edit_blog_comments?
+    = link_to_remote('Delete', {:url => {:action => :delete_comment, :id => id}, :confirm => 'Really delete this comment?'}) if can_delete_blog_comments?

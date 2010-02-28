@@ -1,0 +1,18 @@
+%h2
+  New Photo
+
+- form_for @photo, :url => {:action => :create_photo}, :html => {:multipart => true} do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+  %p
+    = f.label :description
+    = f.text_area :description, :cols => 50, :rows => 4
+  %p
+    = f.file_field :image
+  %p
+    Photoset: 
+    = f.select :photo_set_id, @photo_set_options
+  %p
+    = submit_tag 'Upload'
+    = button_to_function 'Cancel', "$('new_photo_form').innerHTML = ''; $('new_photo_link').show(); $('new_photo_form').hide()"

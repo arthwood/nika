@@ -1,0 +1,79 @@
+%script{:type=> 'text/javascript'}
+  :plain
+    //<![CDATA[
+      function onHide(id_) {
+        $('hide_comments_link_' + id_).hide();
+        $('show_comments_link_' + id_).show();
+        $('comments_' + id_).hide();
+      }
+      
+      function onCancelAddBlogItem() {
+        $('new_blog_item').innerHTML = ''; 
+        $('add_blog_item_link').show();
+      }
+      
+      function onCancelEditBlogItem(id_) {
+        $('blog_item_edit_' + id_).innerHTML = '';
+        $('edit_blog_item_link_' + id_).show();
+        $('blog_item_content_' + id_).show();
+      }
+            
+      function onCancelAddComment(id_) {
+        $('new_comment_' + id_).innerHTML = '';
+        $('add_comment_link_' + id_).show();
+      }
+      
+      function onCancelEditComment(id_) {
+        $('blog_comment_edit_' + id_).innerHTML = '';
+        $('edit_comment_link_' + id_).show();
+        $('comment_content_' + id_).show();
+      }
+
+      var currentNewBlogIcon = null;
+      
+      function onNewBlogIcon(icon_, id_) {
+        if (currentNewBlogIcon) {
+          unselect(currentNewBlogIcon);
+        }
+
+        if (currentNewBlogIcon == icon_) {
+          $('blog_item_icon_id').value = null;
+          currentNewBlogIcon = null;
+          return;
+        }
+
+        currentNewBlogIcon = icon_;
+        select(currentNewBlogIcon);
+        $('blog_item_icon_id').value = id_;
+      }
+      
+      function select(item_) {
+        item_.addClassName('new-blog-icon-selected');
+        Effect.MoveBy(item_, 0, -10, {duration: 0.2});
+      }
+      
+      function unselect(item_) {
+        item_.removeClassName('new-blog-icon-selected');
+        Effect.MoveBy(item_, 0, 10, {duration: 0.2});
+      }
+      
+      function onNewBlogIconOver(icon_) {
+        icon_.addClassName('new-blog-icon-over');
+      }
+      
+      function onNewBlogIconOut(icon_) {
+        icon_.removeClassName('new-blog-icon-over');
+      }
+      
+    //]]>
+  
+%h1 Blog
+
+- if can_add_blog_items?
+  .new_blog_item
+    = link_to_remote('Add new entry', ajax_indicator({:url => {:action => :new_item}}, 'new_blog_item'), {:id => 'add_blog_item_link'})
+    
+    #new_blog_item
+
+#blog_list
+  = render :partial => 'blog_item', :collection => @blog_items

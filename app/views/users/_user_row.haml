@@ -1,0 +1,11 @@
+- superadmin = user_row.superadmin?
+
+%tr[user_row]
+  %td= user_row_counter + 1
+  %td= user_row.login
+  %td= user_row.name
+  %td= superadmin ? 'superadmin' : user_row.role.name
+  %td= user_row.email
+  %td= superadmin ? '' : verbalize_boolean(user_row.active)
+  %td.action= link_to('Edit', {:action => :edit, :id => user_row.id}) unless superadmin
+  %td.action= link_to_function 'Delete', remote_function(:url => {:action => :delete, :id => user_row.id}, :confirm => 'Really delete this user?') unless superadmin

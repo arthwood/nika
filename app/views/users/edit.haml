@@ -1,0 +1,41 @@
+%h1 Edit user
+
+= error_messages_for :user
+
+- form_for(:user, nil, :url => {:action => :update, :id => @user.id}) do |u|
+  %p
+    = u.label :login
+    = u.text_field :login
+  
+  %p
+    = u.label :role
+    = u.select :role_id, Role.options
+  
+  %p
+    = u.label :email
+    = u.text_field :email
+  
+  %p  
+    = u.label :password
+    = u.password_field :password
+  
+  %p
+    = u.label :password_confirmation, 'Confirm Password'
+    = u.password_field :password_confirmation
+
+  %p
+    = u.label :firstname, 'First Name'
+    = u.text_field :firstname
+
+  %p
+    = u.label :lastname, 'Last Name'
+    = u.text_field :lastname
+
+  %p
+    = u.label :active
+    = u.check_box :active
+    
+  %p.submit
+    = submit_tag 'Edit'
+
+= link_to 'Back to list', :action => :list

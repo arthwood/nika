@@ -1,0 +1,8 @@
+- assigned_icons_num = icon.blog_items.size
+- confirm = icon.blog_items.empty? ? 'Really delete this icon?' : "This icon is assigned to #{assigned_icons_num.to_s + ' ' + singular_or_plural(assigned_icons_num, 'blog item')}. Proceed?"
+
+%div[icon]
+  %p.name= icon.name
+  = image_tag icon.image.url(:thumb)
+  %p{:style => ""}
+    = link_to_remote 'Delete', :url => {:action => :delete, :id => icon.id}, :confirm => confirm

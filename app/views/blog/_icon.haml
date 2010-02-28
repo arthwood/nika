@@ -1,0 +1,3 @@
+.blog-icon{:onclick => "onNewBlogIcon(this, #{icon.id})", :onmouseover => "onNewBlogIconOver(this)", :onmouseout => "onNewBlogIconOut(this)"}
+  %p= icon.parent.name
+  = image_tag icon.public_filename

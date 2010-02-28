@@ -1,0 +1,17 @@
+- id = @blog_comment.id
+
+%h2 Edit comment
+
+= error_messages_for :blog_comment
+
+- form_remote_for(:blog_comment, :url => {:action => :update_comment, :id => id}) do |i|
+  %p= hidden_field :blog_comment, :blog_item_id
+  %p= hidden_field :blog_comment, :user_id
+  %label Body:
+  %p= find_and_preserve i.text_area(:body, :style => 'width: 400px; height: 100px;')
+  %p
+    = i.check_box :active
+    Active
+  %p 
+    = submit_tag "Edit"
+    %input{:type => 'button', :value => 'Cancel', :onclick => "onCancelEditComment(#{id})"}

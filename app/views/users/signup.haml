@@ -1,0 +1,37 @@
+%h1 Sing up
+
+= error_messages_for :user
+
+- form_for(:user, nil, :url => {:action => :onsignup}) do |u|
+  %p
+    %label{:for => :user_login}Login
+    %br/
+    = u.text_field :login
+  
+  %p
+    %label{:for => :user_email}Email
+    %br/
+    = u.text_field :email
+  
+  %p  
+    %label{:for => :user_password}Password
+    %br/
+    = u.password_field :password
+  
+  %p
+    %label{:for => :user_password_confirmation}Confirm Password
+    %br/
+    = u.password_field :password_confirmation
+
+  %p
+    %label{:for => :user_firstname}First Name
+    %br/
+    = u.text_field :firstname
+
+  %p
+    %label{:for => :user_lastname}Last Name
+    %br/
+    = u.text_field :lastname
+    
+  %p.submit
+    = submit_tag 'Sign up'

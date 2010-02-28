@@ -1,0 +1,13 @@
+%h1 Edit your profile
+
+= error_messages_for :user
+
+- form_for(:user, @user, :url => {:action => :update_profile}) do |u|
+  %p
+    = u.label :timezone
+    = u.select :timezone, time_zone_options_for_select(@user.timezone)
+ 
+  %p.submit
+    = submit_tag 'Edit'
+
+= link_to 'Back to profile', :action => :profile

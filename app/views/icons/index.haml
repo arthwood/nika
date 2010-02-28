@@ -1,0 +1,20 @@
+%h1 Icons
+
+= link_to_function 'Add icon', "$('new_icon').show()"
+
+= error_messages_for :icon
+
+#new_icon{:style => 'display: none;'}
+  - form_for :icon, :url => {:action => :create}, :html => {:multipart => true} do |i|
+    %p
+      = i.label :name
+      = i.text_field :name, :size => 39
+    %p
+      = i.file_field :image
+    %p 
+      = submit_tag "Add"
+      = button_to_function 'Cancel', "$('new_icon').hide()"
+
+#icons{:style => hide_if_empty(@icons)}
+  = render :partial => 'icon', :collection => @icons
+  %br.clear/

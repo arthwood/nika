@@ -1,0 +1,6 @@
+- created_at = @timezone ? @timezone.adjust(comment_data.created_at) : comment_data.created_at
+- updated_at = @timezone ? @timezone.adjust(comment_data.updated_at) : comment_data.updated_at
+
+%p.posted-by= comment_data.user.login
+%p.posted-at= "#{time_format(created_at)} (#{time_format(updated_at)})"
+%p.body= preserve_breaks(h(comment_data.body))

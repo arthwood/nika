@@ -1,0 +1,9 @@
+.photo
+  .container
+    = image_tag(photo_item.image.url(:medium), :onclick => "openPhoto('#{photo_item.image.url}')")
+  .data
+    %p.name
+      = photo_item.name
+    %p.description
+      = photo_item.description
+  .clearLeft
