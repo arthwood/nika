@@ -2,7 +2,7 @@
 - updated_at = @timezone ? blog_item_data.updated_at.in_time_zone(@timezone) : blog_item_data.updated_at
 
 - if blog_item_data.has_icon?
-  %p.icon= image_tag(blog_item_data.icon.public_filename)
+  %p.icon= image_tag(blog_item_data.icon.image.url(:thumb))
 
 %p.title= blog_item_data.title
 %p.posted-at= "#{time_format(created_at)} (#{time_format(updated_at)})"
