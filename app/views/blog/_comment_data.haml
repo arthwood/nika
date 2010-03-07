@@ -1,5 +1,5 @@
-- created_at = @timezone ? @timezone.adjust(comment_data.created_at) : comment_data.created_at
-- updated_at = @timezone ? @timezone.adjust(comment_data.updated_at) : comment_data.updated_at
+- created_at = @timezone ? comment_data.created_at.in_time_zone(@timezone) : comment_data.created_at
+- updated_at = @timezone ? comment_data.updated_at.in_time_zone(@timezone) : comment_data.updated_at
 
 %p.posted-by= comment_data.user.login
 %p.posted-at= "#{time_format(created_at)} (#{time_format(updated_at)})"

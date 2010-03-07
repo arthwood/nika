@@ -20,7 +20,7 @@
   - if can_add_blog_comments?
     .new_blog_comment
       = link_to_remote('Add comment', ajax_indicator({:url => {:action => :new_comment, :id => id}}, new_comment_id), {:id => "add_comment_link_#{id}"})
-      %div#{:id => new_comment_id}
+      %div{:id => new_comment_id}
 
   %p{:id => "comments_num_#{id}"}
     = render :partial => 'comments_num', :object => blog_item.comments.size

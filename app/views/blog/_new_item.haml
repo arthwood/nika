@@ -9,17 +9,21 @@
     - form_remote_for(:blog_item, :url => {:action => :create_item}) do |i|
       %p= hidden_field :blog_item, :user_id
       %p= hidden_field :blog_item, :icon_id
-      %label Title:
-      %p= i.text_field :title, :style => 'width: 600px;' 
-      %label Body:
-      %p= find_and_preserve i.text_area(:body, :style => 'width: 600px; height: 300px;')
+      %p
+        = i.label :title
+        %br/
+        = i.text_field :title 
+      %p
+        = i.label :body
+        %br/
+        = find_and_preserve i.text_area :body
       %p
         = i.check_box :public, :checked => true
-        Public
+        = i.label :public
       %p
         = i.check_box :active, :checked => true
-        Active
+        = i.label :active
       %p 
-        = submit_tag "Create"
+        = submit_tag 'Create'
         %input{:type => 'button', :value => 'Cancel', :onclick => 'onCancelAddBlogItem()'}
   %br.clear

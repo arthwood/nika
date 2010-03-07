@@ -185,10 +185,10 @@ class BlogController < ApplicationController
     end
     
     def normal_icons
-      Icon.find(:all, :conditions => {:thumbnail => 'normal'})
+      Icon.all
     end
     
     def set_timezone
-      @timezone = logged_in? && current_user.timezone && TimeZone[current_user.timezone]
+      @timezone = logged_in? && (t = current_user.timezone) && ActiveSupport::TimeZone[t]
     end
 end

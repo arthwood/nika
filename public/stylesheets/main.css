@@ -26,13 +26,13 @@ p, ul, label, input, textarea, select {
   margin: 0px;
   padding: 0px;
 }
-div.clearRight {
+.clearRight {
   clear: right;
 }
-div.clearLeft {
+.clearLeft {
   clear: left;
 }
-div.clear {
+.clear {
   clear: both;
 }
 br.clear {
@@ -85,24 +85,24 @@ img.ajax-indicator {
   margin: 20px 10px;
 }
 
-div#flash {
+#flash {
   font-size: 12px;
   font-weight: bold;
   color: White;
   text-align: center;
 }
 
-div#flash div.notice {
+#flash div.notice {
   padding: 4px;
   background-color: #169F38;
 }
 
-div#flash div.error {
+#flash div.error {
   padding: 4px;
   background-color: #D0371F;
 }
 
-div#menu {
+#menu {
   margin-top: 1px;
   padding: 4px;
   background-image: url("/images/menu_bkg.gif");
@@ -110,51 +110,51 @@ div#menu {
   border: solid thin Black;
 }
 
-div#menu ul li {
+#menu ul li {
   margin: 0px 10px;
   display: inline;
 }
 
 
-div#menu ul li a {
+#menu ul li a {
   text-decoration: none;
   color: #333;
 }
 
-div#menu ul li a:hover {
+#menu ul li a:hover {
   color: #000;
 }
 
-div.main {
+.main {
   width: 800px;
   margin: auto;
 }
 
-div.main #header {
+.main #header {
   margin-top: 20px;
   margin-bottom: 2px;
 }
 
-div.main #header .topmenu {
+.main #header .topmenu {
   padding: 4px 0px;
   text-align: right;
   color: #ACCFC2;
 }
 
-div.main #header .topmenu ul li {
+.main #header .topmenu ul li {
   display: inline;
   margin-left: 8px;
 }
 
-div.main #header .topmenu ul li a {
+.main #header .topmenu ul li a {
   color: #819F94;
 }
 
-div.main #header .topmenu ul li a:hover {
+.main #header .topmenu ul li a:hover {
   color: White;
 }
 
-div.main #header div.bkg {
+.main #header div.bkg {
   width: 798px;
   height: 158px;
   background-image: url("/images/topMenuBkg.jpg");
@@ -166,55 +166,53 @@ div.main #header div.bkg {
   border-width: 1px;
 }
 
-div.main #content {
+.main #content {
   background-color: #FFFFEF;
   border: solid thin Black;
   padding: 10px;
 }
 
-div.main #footer {
+.main #footer {
   text-align: right;
   padding-top: 4px;
   margin-bottom: 40px;
   color: #ACCFC2;
 }
 
-div.main #footer a {
+.main #footer a {
   color: #819F94;
 }
 
-div.main #footer a:hover {
+.main #footer a:hover {
   color: White;
 }
 
-div.nika_photo {
+.nika_photo {
   text-align: center;
 }
 
-div.nika_photo img {
+.nika_photo img {
   border: thin solid Black;
 }
 
-div#blog_list {
+#blog_list {
   margin-top: 20px;
 }
 
-div.new_blog_item div.two-cols {
+.new_blog_item .two-cols {
 }
 
-div.new_blog_item div.two-cols div.col-left {
+.new_blog_item .two-cols .col-left {
   float: left;
 }
 
-div.new_blog_item div.two-cols div.col-right {
+.new_blog_item .two-cols .col-right {
   float: right;
   text-align: center;
   width: 150px;
-  height: 416px;
-  overflow: auto;
 }
 
-div.blog-icon {
+.blog-icon {
   padding: 2px 5px 5px 5px;
   margin: 5px 5px 5px 15px;
   width: auto;
@@ -227,33 +225,47 @@ div.blog-icon {
   border-bottom: solid thin #AFA4AC;
 }
 
-div.new-blog-icon-over {
+.new-blog-icon-over {
   background-color: White;
 }
 
-div.new-blog-icon-selected {
+.new-blog-icon-selected {
   background-color: White;
 }
 
-div.blog-icon p {
+.blog-icon p {
   margin-bottom: 4px;
 }
 
-div.new_blog_item {
-  margin: 20px 0px;
-  padding: 10px;
-  background: #FFFFFA;
-  border-top: solid thin #AFA4AC;
-  border-left: solid thin #AFA4AC;
-  border-right: solid thin #E0EFEF;
-  border-bottom: solid thin #E0EFEF;
+.blog-icon img {
+  width: 100px;
 }
 
-div#new_blog_item h2 {
+.new_blog_item {
+  margin: 20px 0;
+  padding: 10px;
+  background: #FFFFFA;
+  border: solid thin;
+  border-top-color: #AFA4AC;
+  border-left-color: #AFA4AC;
+  border-right-color: #E0EFEF;
+  border-bottom-color: #E0EFEF;
+}
+
+#new_blog_item h2 {
   margin-bottom: 10px;
 }
 
-div.blog-item {
+#blog_item_title {
+  width: 600px;
+}
+
+#blog_item_body {
+  width: 600px;
+  height: 140px;
+}
+
+.blog-item {
   padding: 10px;
   margin-bottom: 20px;
   background: #FFFFFA;
@@ -263,53 +275,53 @@ div.blog-item {
   border-bottom: solid thin #E0EFEF;
 }
 
-div.blog-item-inactive {
+.blog-item-inactive {
   background: #EEEEEE;
 }
 
-div.blog-item div.blog-item-content {
+.blog-item .blog-item-content {
   margin-bottom: 10px;
 }
 
-div.blog-item div.blog-item-content p.icon {
+.blog-item .blog-item-content p.icon {
   float: left;
   padding: 5px;
   margin: 0px 5px 5px 0px;
   border: #DDDDDD solid thin;
 }
-div.blog-item div.blog-item-content p.title {
+.blog-item .blog-item-content p.title {
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 6px;
 }
 
-div.blog-item div.blog-item-content p.posted-at {
+.blog-item .blog-item-content p.posted-at {
   font-style: italic;
   color: #888888;
   margin-bottom: 14px;
 }
 
-div.blog-item div.blog-item-content p.body {
+.blog-item .blog-item-content p.body {
   clear: left;
 }
 
-div.blog-item div.blog-item-edit h2 {
+.blog-item .blog-item-edit h2 {
   margin-bottom: 10px;
 }
 
-div.blog-item div.blog-item-edit form {
+.blog-item .blog-item-edit form {
   margin-bottom: 16px;
 }
 
-div.manage-blog-item {
+.manage-blog-item {
   margin-bottom: 10px;
 }
 
-div.new_blog_comment {
+.new_blog_comment {
   margin: 10px 0px;
 }
 
-div.blog-comment {
+.blog-comment {
   padding: 10px;
   margin-top: 10px;
   background: #FFFFFF;
@@ -319,13 +331,13 @@ div.blog-comment {
   border-bottom: solid thin #E0EFEF;
 }
 
-div.blog-comment-inactive {
+.blog-comment-inactive {
   background: #EAEAEA;
   border-right: solid thin #F0FFFF;
   border-bottom: solid thin #F0FFFF;
 }
 
-div#icons {
+#icons {
   margin: 10px 0px;
   padding: 10px;
   background: #FFFFFA;
@@ -335,7 +347,7 @@ div#icons {
   border-bottom: solid thin #E0EFEF;
 }
 
-div.icon {
+.icon {
   float: left;
   padding: 2px 5px 5px 5px;
   margin: 5px;
@@ -348,7 +360,7 @@ div.icon {
   border-bottom: solid thin #AFA4AC;
 }
 
-div.icon p.name {
+.icon p.name {
   margin-bottom: 4px;
 }
 
